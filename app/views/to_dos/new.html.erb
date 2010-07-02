@@ -1,0 +1,12 @@
+<h1>Create a to do</h1>
+
+<% form_for @todo, :url => {:action => :create} do |f| %>
+  <label>Date</label>
+  <%= calendar_date_select_tag "start_date", nil, :embedded => true, :year_range => 5.years.ago..0.years.ago %>
+  <br />
+  <label>Item</label>
+  <%= f.text_field :list %>
+  <br />
+  <%= f.submit_tag "Create To Do item" %>
+  
+<% end %>

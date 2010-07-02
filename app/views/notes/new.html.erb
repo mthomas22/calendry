@@ -1,0 +1,13 @@
+<h3>Enter your thought or note or whatever for <%= Time.now.strftime("%A, %B %d, %Y")%></h3>
+
+<% form_for @note, :url => {:action => :create} do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br />
+  <%= f.cktext_area :body, :toolbar=>'Mine', :width=>'400px', :heigth=>'200px' %>
+  
+  <br />
+
+  <%= f.submit "submit" %>
+<% end %>

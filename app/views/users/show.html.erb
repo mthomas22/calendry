@@ -1,0 +1,21 @@
+Test data <br />
+
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
+  <% calendar_for @notes, :year => @date.year, :month => @date.month do |cal| %>
+    <%= cal.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
+    <% cal.day do |date, notes| %>
+      <%= date.day %>
+      <% notes.each do |note| %>
+        <%= note.title %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+</div>
+
+<%= link_to "Note", new_user_note_path(params[:id]) %> | <%= link_to "Appointment", new_user_appointment_path(params[:id]) %> | <%= link_to "To do item", new_user_to_do_path(params[:id]) %>

@@ -1,0 +1,24 @@
+<h1>Create an account</h1>
+
+<% form_for @user, :url => { :action => :create } do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br />
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br />
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br />
+  <label>Zip Code</label>
+  <%= f.text_field :zip %>
+  <br />
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br />
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <br />
+  <%= f.submit "Create my account" %>
+<% end %>

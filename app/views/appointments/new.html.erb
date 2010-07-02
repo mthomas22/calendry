@@ -1,0 +1,17 @@
+<h1>Create an appointment</h1>
+
+<% form_for @appointment, :url => {:action => :create} do |f| %>
+  <label>Start Date/Time</label>
+  <%= calendar_date_select_tag "start_time", Time.now, :time => true  %>
+  <br />
+  <label>End Date/Time (if necessary)</label>
+  <br />
+  <%= calendar_date_select_tag "end_time", Time.now, :time => true  %>
+  <br />
+  <%= f.label :description %>
+  <br />
+  <%= f.text_area :description %>
+  <br />
+  <%= f.submit_tag "Create appointment" %>
+  
+<% end %>
