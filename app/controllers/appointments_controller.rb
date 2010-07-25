@@ -11,6 +11,7 @@ class AppointmentsController < ApplicationController
     @appointment.start_time = params[:start_time]
     @appointment.end_time = params[:end_time]
     @appointment.user_id = current_user.id
+    @appointment.date = params[:start_time].to_date
     if @appointment.save
       flash[:notice] = "Your apppointment has been saved"
       redirect_to user_path(current_user)

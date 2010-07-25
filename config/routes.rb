@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.login "login", :controller => "user_sessions", :action => "new"
   map.root :controller => "user_sessions", :action => "new"
-  map.resources  :users, :has_many => [ :notes, :appointments, :to_dos ]
+  map.resources  :users, :has_many => [ :notes, :appointments, :to_dos, :listings ]
   # map.resources :notes # to be moved behind user
   # map.resources :appointments # also to be moved behind user
   # The priority is based upon order of creation: first created -> highest priority.

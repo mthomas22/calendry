@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :appointments
   has_many :to_dos
+  has_many :listings
   
   acts_as_authentic
   

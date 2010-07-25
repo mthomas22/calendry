@@ -13,6 +13,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
     @note.user_id = current_user.id
+    @note.date = Time.now.to_date
     if @note.save
       flash[:notice] = "Your thought has been saved"
       redirect_to user_path(current_user)

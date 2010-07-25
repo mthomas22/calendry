@@ -1,11 +1,15 @@
 <h1>Create a to do</h1>
 
 <% form_for @todo, :url => {:action => :create} do |f| %>
+  <%= error_messages_for :to_do %>
   <label>Date</label>
   <%= calendar_date_select_tag "start_date", nil, :embedded => true, :year_range => 5.years.ago..0.years.ago %>
   <br />
   <label>Item</label>
   <%= f.text_field :list %>
+  <br />
+  <%= f.label :remember_this, "Remind Me" %>
+  <%= f.check_box :remember_this %>
   <br />
   <%= f.submit_tag "Create To Do item" %>
   
